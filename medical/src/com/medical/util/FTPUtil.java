@@ -11,7 +11,11 @@ import org.apache.commons.net.ftp.FTPFile;
 import org.apache.commons.net.ftp.FTPReply;
 /**
  * 
- * @author bianshuai
+ * @ClassName: FTPUtil 
+ * @Description: ftp服务器 上传下载
+ * @author bianshuai 
+ * @date 2017年4月23日 下午1:42:32 
+ *
  */
 public class FTPUtil {
 	
@@ -39,11 +43,15 @@ public class FTPUtil {
 		this.password = password;
 		this.path = path;
 	}
-
+	
 	/**
-	 * @
-	 * @return
-	 * @throws Exception
+	 * 
+	 * @Title: openConnect 
+	 * @Description: 连接ftp服务器，并且换到指定目录 
+	 * @param @return
+	 * @param @throws Exception    设定文件 
+	 * @return boolean    返回类型 
+	 * @throws
 	 */
 	public boolean openConnect() throws Exception{
         boolean result = false;      
@@ -61,11 +69,15 @@ public class FTPUtil {
         return result; 
 	}
 	
-    /**  
-     *   
-     * @param file 上传的文件或文件夹  
-     * @throws Exception  
-     */    
+    /**
+     *  
+     * @Title: upload 
+     * @Description: 上传文件或文件夹
+     * @param @param file  上传的文件或文件夹对象
+     * @param @throws Exception    设定文件 
+     * @return void    返回类型 
+     * @throws
+     */
 	public void upload(File file) throws Exception{
         if(file.isDirectory()){           
         	ftpClient.makeDirectory(file.getName());                
@@ -93,10 +105,14 @@ public class FTPUtil {
 	
 	/**
 	 * 
-	 * @param ftpPath ftp路径
-	 * @param localPath 本地路径
-	 * @param fileName 文件名
-	 * @throws Exception
+	 * @Title: download 
+	 * @Description: TODO(这里用一句话描述这个方法的作用) 
+	 * @param @param ftpPath ftp路径
+	 * @param @param localPath 本地文件路径
+	 * @param @param fileName  文件名
+	 * @param @throws Exception    设定文件 
+	 * @return void    返回类型 
+	 * @throws
 	 */
 	public void download(String ftpPath, String localPath, String fileName) throws Exception{
 		
